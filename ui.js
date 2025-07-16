@@ -5,13 +5,13 @@ export class UI {
         this.loading = document.getElementById('loading');
         this.navLinks = document.querySelectorAll('.nav-link');
         this.menuToggle = document.querySelector('.navbar-toggler');
-        this.gamesInstance = null; // سيتم تهيئته من setupNavEvents
+        this.gamesInstance = null; 
     }
 
     displayData(games) {
         if (!Array.isArray(games)) {
             console.error('Expected an array, got:', games);
-            this.gamesSection.innerHTML = '<p class="text-white">No games available.</p>'; // رسالة افتراضية
+            this.gamesSection.innerHTML = '<p class="text-white">No games available.</p>'; 
             return;
         }
         this.gamesSection.innerHTML = games.map(game => `
@@ -60,7 +60,7 @@ export class UI {
     }
 
     setupNavEvents(gamesInstance) {
-        this.gamesInstance = gamesInstance; // تعيين الكائن
+        this.gamesInstance = gamesInstance; 
         this.navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -71,6 +71,5 @@ export class UI {
             });
         });
 
-        // لا حاجة للتعامل يدوي مع الـ toggle، Bootstrap بيشتغل
     }
 }
